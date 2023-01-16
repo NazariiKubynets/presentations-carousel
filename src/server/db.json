@@ -1,0 +1,46 @@
+{
+   "posts": [
+      {
+         "id": 1,
+         "name": {
+            "firstName": "Elon",
+            "lastName": "Musk"
+         },
+         "profession": "Генеральним директором та головним інженером компанії SpaceX та Tesla",
+         "site": "tesla.com, spacex.com",
+         "img": {
+            "face": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/274px-Elon_Musk_Royal_Society_%28crop2%29.jpg",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/1200px-Tesla_Motors.svg.png"
+         },
+         "description": "Aмериканський підприємець, інженер та мільярдер. Він є засновником, генеральним директором та головним інженером компанії SpaceX; інвестором, генеральним директором та архітектором продукту компанії Tesla; засновником The Boring Company;співзасновником Neuralink та OpenAI; власником «Твіттер»."
+      },
+      {
+         "id": 2,
+         "name": {
+            "firstName": "Eon",
+            "lastName": "Musk"
+         },
+         "profession": "Генеральним директором та головним інженером компанії SpaceX та Tesla",
+         "site": "tesla.com, spacex.com",
+         "img": {
+            "face": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/274px-Elon_Musk_Royal_Society_%28crop2%29.jpg",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/1200px-Tesla_Motors.svg.png"
+         },
+         "description": "Aмериканський підприємець, інженер та мільярдер. Він є засновником, генеральним директором та головним інженером компанії SpaceX; інвестором, генеральним директором та архітектором продукту компанії Tesla; засновником The Boring Company;співзасновником Neuralink та OpenAI; власником «Твіттер»."
+      },
+      {
+         "id": 3,
+         "name": {
+            "firstName": "on",
+            "lastName": "Musk"
+         },
+         "profession": "Генеральним директором та головним інженером компанії SpaceX та Tesla",
+         "site": "tesla.com, spacex.com",
+         "img": {
+            "face": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/274px-Elon_Musk_Royal_Society_%28crop2%29.jpg",
+            "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/1200px-Tesla_Motors.svg.png"
+         },
+         "description": "Aмериканський підприємець, інженер та мільярдер. Він є засновником, генеральним директором та головним інженером компанії SpaceX; інвестором, генеральним директором та архітектором продукту компанії Tesla; засновником The Boring Company;співзасновником Neuralink та OpenAI; власником «Твіттер»."
+      }
+   ]
+}

@@ -1,0 +1,71 @@
+.paper {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   background-color: #333333 !important;
+   box-shadow: none !important;
+}
+
+.swiperSlide {
+   width: 655px;
+   box-shadow: 7px 7px 25px rgba(0, 0, 0, 0.5), -7px -7px 25px rgba(68, 68, 68, 0.5)!important;
+   border-radius: 20px;
+   padding: 10px 20px;
+}
+
+.blokRow {
+   display: flex;
+   align-items: center;
+   gap: 38px;
+}
+
+.imgFace {
+   width: 118px;
+   height: 118px;
+   flex-shrink: 0;
+}
+
+.imgFace img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+   border-radius: 50%;
+}
+
+.imgLogo {
+   width: 177px;
+   height: 118px;
+   flex-shrink: 0;
+}
+
+.imgLogo img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}
+
+.date {
+   display: flex;
+   flex-direction: column;
+   gap: 18px;
+}
+
+.name {
+   font-weight: 600;
+   font-size: 18px;
+   color: #FFFFFFD4;
+}
+
+.positionAndSite {
+   font-weight: 600;
+   font-size: 14px;
+   color: #FFFFFFB5;
+}
+
+.txt {
+   overflow-y: auto;
+   max-width: 655px;
+   height: 76px;
+   font-size: 14px;
+   color: #FFFFFFB5;
+}

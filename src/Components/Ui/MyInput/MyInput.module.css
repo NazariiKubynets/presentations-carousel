@@ -1,0 +1,8 @@
+.myInput{
+   width: 100%;
+   padding: 5px 15px;
+   margin-bottom: 10px;
+   font-size: 14px;
+   border: 2px solid rgb(48, 48, 49);
+   background: transparent;
+}
