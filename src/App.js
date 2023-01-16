@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={test}>test</button>
+      <button onClick={go}>test</button>
       <MyModal visible={visibleModal} setVisible={setVisibleModal}>
         <MyForm setVisible={setVisibleModal} dispatch={dispatch}/>
       </MyModal>
