@@ -1,6 +1,9 @@
 .carousel{
    margin-bottom: 50px;
    padding-top: 30px;
+}
+
+.container{
    position: relative;
 }
 
@@ -31,7 +34,7 @@
 
 .btnAdd{
    position: absolute;
-   bottom: 633px;
+   bottom: 43%;
    left: 72.4%;
    z-index: 1;
 }

@@ -8,7 +8,7 @@ import s from './MyBtn.module.css'
 const MyCarousel = (props) => {
 
   return (
-    <div>
+    <div className={s.container}>
       <Carousel className={s.carousel} cycleNavigation={false} autoPlay={false}
         // next={() => props.postId === props.posts.length && props.setVisible(true)}
 
