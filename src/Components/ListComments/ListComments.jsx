@@ -1,7 +1,12 @@
 import React from 'react'
+import MyLoading from '../Ui/Loading/MyLoading'
 import s from './ListComments.module.css'
 
 const ListComments = (props) => {
+
+   if (props.comments.length === 0)
+      return <MyLoading color='inherit' style={{textAlan: 'center'}}/>
+
    return (
       <div className={s.container}>
          <div className={s.listCom}>

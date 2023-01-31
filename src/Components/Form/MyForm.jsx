@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MyButton from '../Ui/MyButton/MyButton';
 import { MyInput } from '../Ui/MyInput/MyInput';
 import { useForm } from 'react-hook-form';
@@ -7,38 +7,82 @@ import MyTextarea from '../Ui/MyTextarea/MyTextarea';
 import { useStyles } from './stylesForm';
 import { schema } from './schemaForm';
 import MyInputFile from '../Ui/MyInputFile/MyInputFile';
-import { addPostsAction } from '../../store/postsReducer';
+import { addPostsAction, setVisibleModelAction } from '../../store/postsReducer';
 
 
 
-const MyForm = ({ dispatch, setVisible }) => {
+const MyForm = ({ dispatch}) => {
 
    const styles = useStyles();
 
-   const { register, handleSubmit, formState: { errors } } = useForm({
+   const { register, handleSubmit, formState: { errors }, reset } = useForm({
       mode: "onBlur",
       resolver: yupResolver(schema)
    });
 
    const [faceURL, setFaceURL] = useState();
    const [logoURL, setLogoURL] = useState();
+   const [errorFace, setErrorFace] = useState({ nameImg: '', error: '' })
+   const [errorLogo, setErrorLogo] = useState({ nameImg: '', error: '' })
 
-   
-      const readerFace = new FileReader();
-      readerFace.onload = function (event) {
-         setFaceURL(event.target.result)
+   const convertImage = (event, type) => {
+
+      const reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+
+      reader.onload = function (event) {
+         if (type === 'face') {
+            setFaceURL(event.target.result)
+         } else {
+            setLogoURL(event.target.result)
+         }
       };
-      const readerLogo = new FileReader();
-      readerLogo.onload = function (event) {
-          setLogoURL(event.target.result)
-      };
+
+   }
+
+   function onImgLoaded(event, type) {
+      convertImage(event, type);
+      type === 'face'
+         ? setErrorFace({ ...errorFace, nameImg: event.target.files[0].name })
+         : setErrorLogo({ ...errorLogo, nameImg: event.target.files[0].name })
+   };
+
+   // const errorImg = (faceURL, logoURL) => {
+   //    if (!faceURL || !logoURL) {
+   //       if (!faceURL && !logoURL) {
+   //          setErrorFace({ ...errorFace, error: "error file face" })
+   //          setErrorLogo({ ...errorLogo, error: "error file logo" })
+   //       }
+   //       else if (!faceURL) setErrorFace({ ...errorFace, error: "error file face" })
+   //       else setErrorLogo({ ...errorLogo, error: "error file logo" })
+   //       return
+   //    }
+   //    else {
+   //       setVisible(false)
+   //       reset();
+   //    }
+   // }
+
+
 
 
    const onSubmit = (data) => {
+      setErrorFace({ ...errorFace, error: '' })
+      setErrorLogo({ ...errorLogo, error: '' })
 
-      readerFace.readAsDataURL(data.face[0]);
-      readerLogo.readAsDataURL(data.logo[0]);
-
+      if (!faceURL || !logoURL) {
+         if (!faceURL && !logoURL) {
+            setErrorFace({ ...errorFace, error: "error file face" })
+            setErrorLogo({ ...errorLogo, error: "error file logo" })
+         }
+         else if (!faceURL) setErrorFace({ ...errorFace, error: "error file face" })
+         else setErrorLogo({ ...errorLogo, error: "error file logo" })
+         return
+      }
+      else {
+         dispatch(setVisibleModelAction(false))
+         reset();
+      }
       dispatch(addPostsAction({
          id: Date.now(),
          name: {
@@ -53,12 +97,8 @@ const MyForm = ({ dispatch, setVisible }) => {
          },
          description: data.description
       }))
-      // readerFace.readAsDataURL(data.face[0]);
-      // readerLogo.readAsDataURL(data.logo[0]);
-
-      console.log(faceURL);
-      console.log(logoURL);
    }
+
 
    return (
       <form noValidate className={styles.root} onSubmit={handleSubmit(onSubmit)}>
@@ -82,22 +122,11 @@ const MyForm = ({ dispatch, setVisible }) => {
             id="description" type="text" label="Brief description"
             name="description" error={!!errors.description} helperText={errors?.description?.message}
          />
-         <MyInputFile {...register('face')} id='face' name='face'>Upload face imag</MyInputFile>
-         <MyInputFile {...register('logo')} id='logo' name='logo'>Upload logo imag</MyInputFile>
-         <MyButton onClick={() => setVisible(false)} >Get slide</MyButton>
+         <MyInputFile {...register('face')} textImg={errorFace} id='face' name='face' onChange={(e) => onImgLoaded(e, e.target.name)}>Upload face imag</MyInputFile>
+         <MyInputFile  {...register('logo')} textImg={errorLogo} id='logo' name='logo' onChange={(e) => onImgLoaded(e, e.target.name)}>Upload logo imag</MyInputFile>
+         <MyButton>Add slide</MyButton>
       </form>
    )
 }
 
 export default MyForm
-
-
-
-{/* <MyInput onChange={(e) => setSlide({ ...slide, img: { ...slide.img, face: e.target.value } })} type='file' accept="image/png, image/jpeg, image/gif, image/ico" />
-         <MyInput onChange={(e) => setSlide({ ...slide, img: { ...slide.img, logo: e.target.value } })} type='file' accept="image/png, image/jpeg, image/gif, image/ico" />
-
-         <MyInput onChange={(e) => setSlide({ ...slide, name: { ...slide.name, firstName: e.target.value } })} type='text' placeholder="First name" maxlength='25' minlength='2' />
-         <MyInput onChange={(e) => setSlide({ ...slide, name: { ...slide.name, lastName: e.target.value } })} type='text' placeholder="Last Name" maxlength='25' minlength='2' />
-         <MyInput onChange={(e) => setSlide({ ...slide, profession: e.target.value })} type='text' placeholder="Profession" />
-         <MyInput onChange={(e) => setSlide({ ...slide, site: e.target.value })} type='text' placeholder="Links to the company's website" />
-         <MyInput onChange={(e) => setSlide({ ...slide, description: e.target.value })} type='text' placeholder="Brief description" /> */}

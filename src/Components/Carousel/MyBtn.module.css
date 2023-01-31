@@ -1,9 +1,10 @@
 .carousel{
    margin-bottom: 50px;
    padding-top: 30px;
+   position: relative;
 }
 
-.btnSt {
+.btnSt, .btnAdd{
    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.75), -5px -5px 30px #505050;
    background: linear-gradient(0deg, #444444 10.44%, #1B1B1B 95.09%);
    border-radius: 100px;
@@ -26,5 +27,12 @@
 
 .next svg {
    transform: rotate(180deg);
+}
+
+.btnAdd{
+   position: absolute;
+   bottom: 633px;
+   left: 72.4%;
+   z-index: 1;
 }
 

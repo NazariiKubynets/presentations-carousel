@@ -1,5 +1,6 @@
 const SET_POSTS = 'SET_POSTS';
 const ADD_POST = 'ADD_POST';
+const SET_VISIBLE_MODAL = 'SET_VISIBLE_MODAL';
 
 const defaultState = {
    posts: [{
@@ -45,7 +46,7 @@ const defaultState = {
       "description": "Aмериканський підприємець, інженер та мільярдер. Він є засновником, генеральним директором та головним інженером компанії SpaceX; інвестором, генеральним директором та архітектором продукту компанії Tesla; засновником The Boring Company;співзасновником Neuralink та OpenAI; власником «Твіттер»."
    }
    ],
-   // isFetching: true
+   visibleModal: false
 }
 
 export const postsReducer = (state = defaultState, action) => {
@@ -54,10 +55,13 @@ export const postsReducer = (state = defaultState, action) => {
          return { ...state, posts: action.payload }
       case ADD_POST:
          return { ...state, posts: [...state.posts, action.payload] }
+      case SET_VISIBLE_MODAL:
+         return { ...state, visibleModal: action.payload }
       default:
          return state;
    }
 }
 
 export const setPostsAction = (payload) => ({ type: SET_POSTS, payload });
-export const addPostsAction = (payload) => ({ type: ADD_POST, payload })
+export const addPostsAction = (payload) => ({ type: ADD_POST, payload });
+export const setVisibleModelAction = (payload) => ({ type: SET_VISIBLE_MODAL, payload });

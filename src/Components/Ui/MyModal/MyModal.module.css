@@ -16,7 +16,7 @@
    max-width: 400px;
 }
 
-.myModal.active{
+.active{
    display: flex;
    justify-content: center;
    align-items: center;
