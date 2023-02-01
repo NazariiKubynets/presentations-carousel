@@ -47,25 +47,6 @@ const MyForm = ({ dispatch}) => {
          : setErrorLogo({ ...errorLogo, nameImg: event.target.files[0].name })
    };
 
-   // const errorImg = (faceURL, logoURL) => {
-   //    if (!faceURL || !logoURL) {
-   //       if (!faceURL && !logoURL) {
-   //          setErrorFace({ ...errorFace, error: "error file face" })
-   //          setErrorLogo({ ...errorLogo, error: "error file logo" })
-   //       }
-   //       else if (!faceURL) setErrorFace({ ...errorFace, error: "error file face" })
-   //       else setErrorLogo({ ...errorLogo, error: "error file logo" })
-   //       return
-   //    }
-   //    else {
-   //       setVisible(false)
-   //       reset();
-   //    }
-   // }
-
-
-
-
    const onSubmit = (data) => {
       setErrorFace({ ...errorFace, error: '' })
       setErrorLogo({ ...errorLogo, error: '' })

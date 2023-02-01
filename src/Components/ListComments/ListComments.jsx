@@ -4,7 +4,7 @@ import s from './ListComments.module.css'
 
 const ListComments = (props) => {
 
-   if (props.comments.length === 0)
+   if (props.comments.length !== 0)
       return <MyLoading color='inherit' style={{textAlan: 'center'}}/>
 
    return (

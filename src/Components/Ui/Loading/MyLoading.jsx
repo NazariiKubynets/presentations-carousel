@@ -3,7 +3,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const MyLoading = ({...props}) => {
   return (
-   <div style={{display: 'flex', justifyContent: 'center'}}>
+   <div style={{margin: '0 auto', width: "fit-content"}}>
       <CircularProgress {...props}/>
    </div>
   )
