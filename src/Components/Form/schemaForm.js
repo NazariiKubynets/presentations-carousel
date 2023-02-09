@@ -23,7 +23,7 @@ export const schema = yup.object().shape({
    nameWebsite: yup
       .string()
       .matches(/^([A-z-.]*)$/, "Use the Latin alphabet")
-      .matches(/^[^.]+\..*[^-_.]$/, "rgruisof")
+      .matches(/^[^.]+\..*[^-_.]$/, "Example - google.com")
       .required("Name company's website is a required field"),
    description: yup
       .string()
